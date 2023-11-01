@@ -12,7 +12,6 @@ const Footer = () => {
         <Row className="w-100">
           <Col className="brandname">
             <Branding />
-            &nbsp;.org
           </Col>
           <Col className="menu marr-30">
             <Links />
@@ -24,7 +23,7 @@ const Footer = () => {
           <Col>
             <Row className="w-100 content-center">
               <Col className="brandname w-100 content-center">
-                <Branding />.org
+                <Branding />
               </Col>
             </Row>
             <Row className="w-100 content-center mart-20">
