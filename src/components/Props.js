@@ -24,22 +24,24 @@ const Props = () => {
         "We safeguard smart contracts against bots through a straightforward solution that users are already familiar with.",
     },
     {
+      title: "Integrate",
+      text: "Simple Integration",
+      description:
+        "Implementing our bot protection requires only a few lines of code, ensuring a seamless experience for developers.",
+    },
+    {
       title: "Advertise",
       text: "Unlocking Advertising Potential",
       description:
         "Businesses and individuals will be able to rent captcha images, similar to billboards, to promote their services.",
+      soon: true,
     },
     {
       title: "Earn Revenue",
       text: "Sharing Revenue with Users",
       description:
         "A portion of the advertising revenue will be shared with users, making captchas a less bothersome experience.",
-    },
-    {
-      title: "Integrate",
-      text: "Simple Integration",
-      description:
-        "Implementing our bot protection requires only a few lines of code, ensuring a seamless experience for developers.",
+      soon: true,
     },
   ];
 
@@ -58,6 +60,11 @@ const Props = () => {
                 {data.description}
               </p>
             </div>
+            {data.soon ? (
+              <div className=" xsmalltext">coming soon..</div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>
@@ -102,7 +109,9 @@ const Props = () => {
                 {smallCircle()}
               </Col>
             )}
-            <Col className={`${(xs || md) ? "marb-30 marr-100 mart-30" : ""}`}>{bigCircle(item[1])}</Col>
+            <Col className={`${xs || md ? "marb-30 marr-100 mart-30" : ""}`}>
+              {bigCircle(item[1])}
+            </Col>
           </Row>
           <Row className="w-100 content-center">
             {!xs && (
@@ -144,13 +153,17 @@ const Props = () => {
               {bigCircle(item[2])}
               {/* <div className="">{smallCircle()}</div> */}
             </Col>
-           {!xs && <Col
-              className="pad-0"
-              style={{ maxWidth: "200px", opacity: "0.3" }}
+            {!xs && (
+              <Col
+                className="pad-0"
+                style={{ maxWidth: "200px", opacity: "0.3" }}
+              >
+                {smallCircle()}
+              </Col>
+            )}
+            <Col
+              className={`content-center ${xs ? "mart-0" : "mart-80"} marr-50`}
             >
-              {smallCircle()}
-            </Col>}
-            <Col className={`content-center ${xs ? "mart-0" : "mart-80"} marr-50`}>
               {bigCircle(item[3])}
             </Col>
           </Row>

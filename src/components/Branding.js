@@ -7,6 +7,7 @@ const Branding = () => {
       <div className="mart-2">
         <span className="marl-10">SOLVE</span>
         <span className="text-white marl-2 fat">3</span>
+        <span className="xsmalltext monofont fat"> Beta</span>
       </div>
     </>
   );

@@ -79,7 +79,9 @@ const WelcomeHero = () => {
 
           {/* BUTTON */}
 
-          <div className={`${xs ? "between content-center" : "between marl-5"}`}>
+          <div
+            className={`${xs ? "between content-center" : "between marl-5"}`}
+          >
             <Link
               scroll={(el) =>
                 el.scrollIntoView({
@@ -99,13 +101,22 @@ const WelcomeHero = () => {
             </Link>
             <Button
               onClick={() => {
-                window.open("https://docs.solve3.org", "_blank");
+                window.open("https://demo.solve3.org", "_blank");
               }}
               variant="light"
               className="mart-30 fat  padl-20 padr-20"
             >
-              Get started
+              Try the Demo
             </Button>
+            {/* <Button
+              onClick={() => {
+                window.open("https://docs.solve3.org", "_blank");
+              }}
+              variant="outline-light"
+              className="mart-30 fat  padl-20 padr-20"
+            >
+              Read the docs
+            </Button> */}
           </div>
         </Col>
         {lg && (

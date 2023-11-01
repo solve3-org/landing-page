@@ -11,6 +11,7 @@ import ProblemSolution from "./components/ProblemSolution";
 import HowItWorks from "./components/HowItWorks";
 import Props from "./components/Props";
 import Footer from "./components/Footer";
+import Networks from "./components/Networks";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Container className="fullwidth pad-0">
           <Navigation />
           <WelcomeHero />
-          <ProblemSolution />
+          <Networks />
+          {/* <ProblemSolution /> */}
           <HowItWorks />
           <Props />
           <Footer />
