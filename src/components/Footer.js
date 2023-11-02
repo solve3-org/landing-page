@@ -4,11 +4,11 @@ import Links from "./Links";
 import useScreenSize from "../hooks/useScreenSize";
 
 const Footer = () => {
-    const { xs, md, lg, responsive } = useScreenSize();
+    const { xxs, xs, md, lg, responsive } = useScreenSize();
 
   return (
     <Container className="fullwidth footer bg-darkish">
-      {!xs && (
+      {!(xs || xxs) && (
         <Row className="w-100">
           <Col className="brandname">
             <Branding />
@@ -18,7 +18,7 @@ const Footer = () => {
           </Col>
         </Row>
       )}
-      {xs && (
+      {(xs || xxs) && (
         <>
           <Col>
             <Row className="w-100 content-center">

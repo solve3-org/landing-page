@@ -1,7 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import useScreenSize from "../hooks/useScreenSize";
 import { TbCopy } from "react-icons/tb";
-import tilesBg from "../media/tiles-bg.png";
 
 import {
   Polygon,
@@ -26,7 +25,7 @@ const bgOverlayStyle = {
 };
 
 const Networks = () => {
-  const { xs, md, lg, responsive } = useScreenSize();
+  const { xxs, xs, md, lg, responsive } = useScreenSize();
 
   const address = "0xa564de1b600e99704c412460cfEc1e32185484e1";
   const copy = () => {
@@ -113,7 +112,7 @@ const Networks = () => {
 
   const tiles = () => {
     const result = [];
-    const tilecount = xs ? 1 : md ? 3 : 3;
+    const tilecount = xxs ? 1 : xs ? 2 : md ? 3 : 3;
     const totalChains = chains.length;
     const rows = Math.ceil(totalChains / tilecount);
 
@@ -127,6 +126,7 @@ const Networks = () => {
         // if chain index even, "even"
 
         const even = chainIndex % 2 === 0 ? "pinkish" : "pinkish box-shadow-sm";
+        const height = xxs || xs ? "80px" : md ? "100px" : "130px";
         // const tileColor =
         //   colIndex === 0
         //     ? "redish"
@@ -146,7 +146,7 @@ const Networks = () => {
                 "mart-5 marb-5 marl-5 marr-5 opacity-85 content-center big-square " +
                 even
               }
-              style={{ justifyContent: "center" }}
+              style={{ justifyContent: "center", height: height }}
             >
               <div
                 className={`${
@@ -202,24 +202,28 @@ const Networks = () => {
       )}`}
       style={bgOverlayStyle}
     >
-      <Col>
+      <Col className="mart-30 marb-60">
         <div className="mart-20 marb-20 marr-20">
           <h1>Supported chains</h1>
         </div>
         <Row className="content-center w-100">
           <p
             className="text-center"
-            style={{ maxWidth: xs || md ? "350px" : "650px" }}
+            style={{ maxWidth: xxs || xs ? "350px" : "650px" }}
           >
             Solve3 provides bot protection for Ethereum and various EVM chains.
             Different chains, one address{" "}
-            <span className="monofont smalltext">{address}</span>
+            <span className="monofont smalltext">
+              {xxs || xs
+                ? address.slice(0, 6) + "..." + address.slice(-4)
+                : address}
+            </span>
             <span className="pointer monofont marl-2" onClick={copy}>
               <TbCopy size={"14"} />
             </span>
           </p>
         </Row>
-        <Row className="content-center mart-40">{tiles()}</Row>
+        <Row className="content-center mart-40 marb-60">{tiles()}</Row>
       </Col>
     </Container>
   );

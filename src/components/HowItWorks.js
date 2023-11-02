@@ -14,7 +14,7 @@ const bgOverlayStyle = {
 };
 
 const HowItWorks = () => {
-  const { xs, md, lg, responsive } = useScreenSize();
+  const { xxs, xs, md, lg, responsive } = useScreenSize();
 
   const how = (c) => {
     switch (c) {
@@ -73,21 +73,21 @@ const HowItWorks = () => {
         <Row xs={1} md={3} lg={3}>
           <Col
             className="content-center marb-20"
-            style={{ justifyContent: xs || md ? "center" : "flex-end" }}
+            style={{ justifyContent: xxs || xs || md ? "center" : "flex-end" }}
           >
             <div>
               <h3 className="text-center chubby" style={{ opacity: "0.7" }}>
-                {xs ? how("b").c : how("c").c}
+                {xs || xxs ? how("b").c : how("c").c}
               </h3>
               <p
                 className=""
                 style={{
                   maxWidth: "300px",
-                  textAlign: xs || md ? "center" : "right",
-                  marginBottom: xs || md ? "20px" : "",
+                  textAlign: xxs || xs || md ? "center" : "right",
+                  marginBottom: xxs || xs || md ? "20px" : "",
                 }}
               >
-                {xs ? how("b").t : how("c").t}
+                {xxs || xs ? how("b").t : how("c").t}
               </p>
             </div>
           </Col>
@@ -101,21 +101,23 @@ const HowItWorks = () => {
           </Col>
           <Col
             className="content-center  marb-20"
-            style={{ justifyContent: xs || md ? "center" : "flex-start" }}
+            style={{
+              justifyContent: xxs || xs || md ? "center" : "flex-start",
+            }}
           >
             <div>
               <h3 className="chubby" style={{ opacity: "0.7" }}>
-                {xs ? how("c").c : how("b").c}
+                {xxs || xs ? how("c").c : how("b").c}
               </h3>
               <p
                 className=""
                 style={{
                   maxWidth: "300px",
-                  textAlign: xs || md ? "center" : "left",
-                  marginTop: xs || md ? "20px" : "",
+                  textAlign: xxs || xs || md ? "center" : "left",
+                  marginTop: xxs || xs || md ? "20px" : "",
                 }}
               >
-                {xs ? how("c").t : how("b").t}
+                {xxs || xs ? how("c").t : how("b").t}
               </p>
             </div>
           </Col>
@@ -127,7 +129,7 @@ const HowItWorks = () => {
           <Col className="content-center w-100">
             <p
               className="text-center"
-              style={{ maxWidth: xs || md ? "350px" : "450px" }}
+              style={{ maxWidth: xxs || xs || md ? "350px" : "450px" }}
             >
               {how("d").t}
             </p>

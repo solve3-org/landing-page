@@ -3,16 +3,22 @@ import bot from "../media/bot.png";
 import useScreenSize from "../hooks/useScreenSize";
 
 const ProblemSolution = () => {
-  const { xs, md, lg, responsive } = useScreenSize();
+  const { xxs, xs, md, lg, responsive } = useScreenSize();
 
   function column(heading, description, button) {
     return (
-      <Col id="problem" className="content-center" style={{maxWidth: "600px"}}>
-        <div className={`transparent-box ${heading.toLowerCase() == "problem" ? "redish" : ""}
-        ${
-          xs || md ? "pad-5 mart-30" : ""
-        }
-        `}>
+      <Col
+        id="problem"
+        className="content-center"
+        style={{ maxWidth: "600px" }}
+      >
+        <div
+          className={`transparent-box ${
+            heading.toLowerCase() == "problem" ? "redish" : ""
+          }
+        ${xxs || xs || md ? "pad-5 mart-30" : ""}
+        `}
+        >
           <h2>
             <div className="thin pad-15 marl-20">{heading} </div>
           </h2>
@@ -29,7 +35,7 @@ const ProblemSolution = () => {
                   <div className="content-center">
                     <h4>{d.short}</h4>
                   </div>
-                  <p style={{opacity: "0.6"}}>{d.description}</p>
+                  <p style={{ opacity: "0.6" }}>{d.description}</p>
                 </div>
                 {index !== description.length - 1 && (
                   <div className="flex-centered mart-8">
@@ -63,7 +69,7 @@ const ProblemSolution = () => {
       )}`}
     >
       <Row xs={1} md={1} lg={1} xl={3} className="content-center">
-        {(xs || md) && (
+        {(xxs || xs || md) && (
           <Col className="content-center">
             <img
               style={{ opacity: "0.6", maxWidth: xs ? "200px" : "250px" }}
@@ -98,7 +104,7 @@ const ProblemSolution = () => {
             url: "https://google.de",
           },
         )}
-        {!xs && !md && (
+        {!xxs && !xs && !md && (
           <Col className="content-center">
             <img
               style={{ opacity: "0.6", maxWidth: "250px" }}

@@ -406,7 +406,7 @@
 }
 
 .big-square {
-  height: 150px !important;
+  /* height: 150px !important; */
   width: 150px !important;
   border-color: rgba(247, 221, 255, 0.2);
   /* box-shadow: 0 0 10px rgba(247, 221, 255, 0.2); */

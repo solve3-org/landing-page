@@ -3,7 +3,7 @@ import twitter from "../media/twitter.png";
 import useScreenSize from "../hooks/useScreenSize";
 
 const Links = () => {
-  const { xs, md, lg, responsive } = useScreenSize();
+  const { xxs, xs, md, lg, responsive } = useScreenSize();
 
   return (
     <>
@@ -20,7 +20,7 @@ const Links = () => {
       >
         <span
           className={`link padt-5 padb-5 ${
-            xs ? "padr-15 padl-15" : "padr-30 padl-30"
+            xxs || xs ? "padr-15 padl-15" : "padr-30 padl-30"
           }`}
         >
           Home
@@ -29,7 +29,7 @@ const Links = () => {
       <Link style={{ textDecoration: "none" }}>
         <span
           className={`link padt-5 padb-5 ${
-            xs ? "padr-15 padl-15" : "padr-30 padl-30"
+            xxs || xs ? "padr-15 padl-15" : "padr-30 padl-30"
           }`}
           onClick={() => {
             window.open("https://docs.solve3.org", "_blank");
@@ -41,7 +41,7 @@ const Links = () => {
       <Link style={{ textDecoration: "none" }}>
         <span
           className={`link padt-5 padb-5 ${
-            xs ? "padr-15 padl-15" : "padr-30 padl-30"
+            xxs || xs ? "padr-15 padl-15" : "padr-30 padl-30"
           }`}
           onClick={() => {
             window.open("https://demo.solve3.org", "_blank");
@@ -52,7 +52,9 @@ const Links = () => {
       </Link>
       <Link style={{ textDecoration: "none" }}>
         <span
-          className={`link padt-5 padb-5 ${xs ? "padl-15" : "padr-30 padl-30"}`}
+          className={`link padt-5 padb-5 ${
+            xxs || xs ? "padl-15" : "padr-30 padl-30"
+          }`}
           onClick={() => {
             window.open("https://twitter.com/Solve3_org", "_blank");
           }}

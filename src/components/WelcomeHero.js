@@ -15,7 +15,7 @@ const bgOverlayStyle = {
 };
 
 const WelcomeHero = () => {
-  const {xs, md, lg, responsive } = useScreenSize();
+  const { xxs, xs, md, lg, responsive } = useScreenSize();
 
   return (
     <Container
@@ -24,7 +24,7 @@ const WelcomeHero = () => {
         "pad-20",
         "pad-80",
         "pad-100",
-      )} ${xs ? "mart-100" : ""}`}
+      )} ${xxs || xs ? "mart-100" : ""}`}
       style={bgOverlayStyle}
     >
       {/* <div className="bg-overlay" style={bgOverlayStyle}></div> */}
@@ -34,8 +34,10 @@ const WelcomeHero = () => {
       <Row className="content-center">
         <Col className="">
           <h1
-            className={`${xs || md ? "content-center" : "text-left marb-0"}`}
-            style={{ fontSize: xs ? "2rem" : "" }}
+            className={`${
+              xxs || xs || md ? "content-center" : "text-left marb-0"
+            }`}
+            style={{ fontSize: xxs || xs ? "2rem" : "" }}
           >
             <span className="text-white marl-2 fat">Hi, this is</span>
             <span className="thin">&nbsp;SOLVE</span>
@@ -56,7 +58,7 @@ const WelcomeHero = () => {
           <h2 className="mart-30 text-left">
             <span
               className="text-white"
-              style={{ fontSize: xs ? "1.3rem" : "" }}
+              style={{ fontSize: xxs || xs ? "1.3rem" : "" }}
             >
               A Smart Contract Bot Protection
             </span>
@@ -80,7 +82,9 @@ const WelcomeHero = () => {
           {/* BUTTON */}
 
           <div
-            className={`${xs ? "between content-center" : "between marl-5"}`}
+            className={`${
+              xxs || xs ? "between content-center" : "between marl-5"
+            }`}
           >
             <Link
               scroll={(el) =>

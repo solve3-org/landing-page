@@ -4,7 +4,7 @@ import bgOverlay from "../media/circle-bg.png";
 import useScreenSize from "../hooks/useScreenSize";
 
 const Props = () => {
-  const { xs, md, lg, responsive } = useScreenSize();
+  const { xxs, xs, md, lg, responsive } = useScreenSize();
 
   const bgOverlayStyle = {
     backgroundImage: `url(${bgOverlay}), linear-gradient(180deg, #2a0936 0%, #441953 100%)`,
@@ -21,7 +21,7 @@ const Props = () => {
       title: "Protect",
       text: "Securing Contracts from Bots",
       description:
-        "We safeguard smart contracts against bots through a straightforward solution that users are already familiar with.",
+        "We safeguard smart contracts against bots through a straight-forward solution that users are already familiar with.",
     },
     {
       title: "Integrate",
@@ -94,14 +94,14 @@ const Props = () => {
         <Row className="fullheight content-center w-100">
           <Row className="w-100 content-center mart-50">
             <Col className="content-center">
-              {!xs && (
+              {!(xxs || xs) && (
                 <div className="pad-50 mart-100" style={{ opacity: "0.75" }}>
                   {smallCircle()}
                 </div>
               )}
               {bigCircle(item[0])}
             </Col>
-            {!xs && (
+            {!(xxs || xs) && (
               <Col
                 className="pad-0"
                 style={{ maxWidth: "200px", opacity: "0.5" }}
@@ -109,12 +109,14 @@ const Props = () => {
                 {smallCircle()}
               </Col>
             )}
-            <Col className={`${xs || md ? "marb-30 marr-100 mart-30" : ""}`}>
+            <Col
+              className={`${xxs || xs || md ? "marb-30 marr-100 mart-30" : ""}`}
+            >
               {bigCircle(item[1])}
             </Col>
           </Row>
           <Row className="w-100 content-center">
-            {!xs && (
+            {!(xxs || xs) && (
               <Col
                 className="content-center padr-50 padt-50 marr-50"
                 style={{
@@ -138,7 +140,7 @@ const Props = () => {
                 </div>
               </div>
             </Col>
-            {!xs && (
+            {!(xxs || xs) && (
               <Col
                 className="content-center padr-50 padt-50"
                 style={{ opacity: "0.75" }}
@@ -153,7 +155,7 @@ const Props = () => {
               {bigCircle(item[2])}
               {/* <div className="">{smallCircle()}</div> */}
             </Col>
-            {!xs && (
+            {!(xxs || xs) && (
               <Col
                 className="pad-0"
                 style={{ maxWidth: "200px", opacity: "0.3" }}
@@ -162,7 +164,9 @@ const Props = () => {
               </Col>
             )}
             <Col
-              className={`content-center ${xs ? "mart-0" : "mart-80"} marr-50`}
+              className={`content-center ${
+                xxs || xs ? "mart-0" : "mart-80"
+              } marr-50`}
             >
               {bigCircle(item[3])}
             </Col>

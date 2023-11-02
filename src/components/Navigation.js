@@ -5,7 +5,7 @@ import Links from "./Links";
 import useScreenSize from "../hooks/useScreenSize";
 
 function Navigation() {
-  const { xs, md, lg, responsive } = useScreenSize();
+  const { xxs, xs, md, lg, responsive } = useScreenSize();
 
   return (
     <>
@@ -20,7 +20,7 @@ function Navigation() {
             </Col>
           </Row>
         )}
-        {xs && (
+        {(xxs || xs) && (
           <>
             <Row className="w-100 content-center">
               <Col className="content-center brandname h-100 marl-0 marr-10">
