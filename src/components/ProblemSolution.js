@@ -64,6 +64,7 @@ const ProblemSolution = () => {
     <Container
       className={`hero pad-10 bi-colored w-100 ${responsive(
         "pad-20",
+        "pad-20",
         "pad-30",
         "pad-50",
       )}`}

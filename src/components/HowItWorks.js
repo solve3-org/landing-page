@@ -49,6 +49,7 @@ const HowItWorks = () => {
       className={`grad1 hero w-100 ${responsive(
         "pad-50",
         "pad-50",
+        "pad-50",
         "pad-100",
       )}`}
       style={bgOverlayStyle}

@@ -22,6 +22,7 @@ const WelcomeHero = () => {
       id="home"
       className={`grad1 hero w-100 ${responsive(
         "pad-20",
+        "pad-20",
         "pad-80",
         "pad-100",
       )} ${xxs || xs ? "mart-100" : ""}`}

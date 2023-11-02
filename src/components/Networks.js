@@ -198,6 +198,7 @@ const Networks = () => {
       className={`grad0 tiled-background hero w-100 ${responsive(
         "pad-50",
         "pad-50",
+        "pad-50",
         "pad-100",
       )}`}
       style={bgOverlayStyle}
