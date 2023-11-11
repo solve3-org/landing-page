@@ -2,7 +2,9 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import heroMedia from "../media/hero-media.png";
 import bgOverlay from "../media/hero-bg.png";
 import useScreenSize from "../hooks/useScreenSize";
-import { HashLink as Link } from "react-router-hash-link";
+import { useForm, ValidationError } from "@formspree/react";
+import { useEffect, useState } from "react";
+import Contact from "./Contact";
 
 const bgOverlayStyle = {
   backgroundImage: `url(${bgOverlay}), linear-gradient(180deg, #441953 0%, #ad33cc 100%)`,
@@ -16,6 +18,16 @@ const bgOverlayStyle = {
 
 const WelcomeHero = () => {
   const { xxs, xs, md, lg, responsive } = useScreenSize();
+
+  const [state, handleSubmit] = useForm("mvojywya");
+  const [success, setSuccess] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (state.succeeded) {
+      setSuccess(true);
+    }
+  }, [state.succeeded]);
 
   return (
     <Container
@@ -82,12 +94,13 @@ const WelcomeHero = () => {
 
           {/* BUTTON */}
 
-          <div
+          <Row
+            lg={5}
             className={`${
-              xxs || xs ? "between content-center" : "between marl-5"
+              xxs || xs || md ? "between content-center" : "between marl-5"
             }`}
           >
-            <Link
+            {/* <Link
               scroll={(el) =>
                 el.scrollIntoView({
                   behavior: "auto",
@@ -96,33 +109,45 @@ const WelcomeHero = () => {
                 })
               }
               to="/#problem"
+            > */}
+            <Button
+              variant="outline-light"
+              className={`${
+                xxs || xs || md ? "mart-10" : "mart-30"
+              }  fat padl-20 padr-20`}
+              onClick={() => {
+                window.open("https://docs.solve3.org", "_blank");
+              }}
+              style={{ width: "150px" }}
             >
-              <Button
-                variant="outline-light"
-                className="mart-30 fat padl-20 padr-20"
-              >
-                Learn more
-              </Button>
-            </Link>
+              Read the Docs
+            </Button>
+            {/* </Link> */}
             <Button
               onClick={() => {
                 window.open("https://demo.solve3.org", "_blank");
               }}
               variant="light"
-              className="mart-30 fat  padl-20 padr-20"
+              className={`${
+                xxs || xs || md ? "mart-10" : "mart-30"
+              }  fat padl-20 padr-20`}
+              style={{ width: "150px" }}
             >
               Try the Demo
             </Button>
-            {/* <Button
+            <Button
               onClick={() => {
-                window.open("https://docs.solve3.org", "_blank");
+                setOpen(!open);
               }}
-              variant="outline-light"
-              className="mart-30 fat  padl-20 padr-20"
+              variant={`${!open ? "outline-light" : "light"}`}
+              className={`${
+                xxs || xs || md ? "mart-10" : "mart-30"
+              }  fat padl-20 padr-20`}
+              style={{ width: "150px" }}
             >
-              Read the docs
-            </Button> */}
-          </div>
+              Get in touch
+            </Button>
+          </Row>
         </Col>
         {lg && (
           <Col className="content-center">
@@ -131,6 +156,7 @@ const WelcomeHero = () => {
           </Col>
         )}
       </Row>
+      <Contact open={open} setOpen={setOpen} />
     </Container>
   );
 };

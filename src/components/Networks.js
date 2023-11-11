@@ -143,10 +143,16 @@ const Networks = () => {
             <Col
               key={chainIndex}
               className={
-                "mart-5 marb-5 marl-5 marr-5 opacity-85 content-center big-square " +
+                "pointer mart-5 marb-5 marl-5 marr-5 opacity-85 content-center big-square " +
                 even
               }
               style={{ justifyContent: "center", height: height }}
+              onClick={() =>
+                window.open(
+                  chains[chainIndex].blockexplorer + "/address/" + address,
+                  "_blank",
+                )
+              }
             >
               <div
                 className={`${
@@ -154,12 +160,6 @@ const Networks = () => {
                     ? "svg-container-small"
                     : "svg-container"
                 } pointer`}
-                onClick={() =>
-                  window.open(
-                    chains[chainIndex].blockexplorer + "/address/" + address,
-                    "_blank",
-                  )
-                }
               >
                 {chains[chainIndex].image}
               </div>

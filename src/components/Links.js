@@ -1,5 +1,7 @@
 import { HashLink as Link } from "react-router-hash-link";
 import twitter from "../media/twitter.png";
+import github from "../media/github.png";
+
 import useScreenSize from "../hooks/useScreenSize";
 
 const Links = () => {
@@ -52,9 +54,7 @@ const Links = () => {
       </Link>
       <Link style={{ textDecoration: "none" }}>
         <span
-          className={`link padt-5 padb-5 ${
-            xxs || xs ? "padl-15" : "padr-30 padl-30"
-          }`}
+          className={`link padt-5 padb-5 ${xxs || xs ? "padl-15" : "padl-30"}`}
           onClick={() => {
             window.open("https://twitter.com/Solve3_org", "_blank");
           }}
@@ -62,6 +62,23 @@ const Links = () => {
           <img
             src={twitter}
             alt="twitter"
+            className="twitter"
+            style={{ maxWidth: "20px", opacity: "0.7" }}
+          />
+        </span>
+      </Link>
+      <Link style={{ textDecoration: "none" }}>
+        <span
+          className={`link padt-5 padb-5 ${
+            xxs || xs ? "padl-15" : "padr-30 padl-10"
+          }`}
+          onClick={() => {
+            window.open("https://github.com/solve3-org/", "_blank");
+          }}
+        >
+          <img
+            src={github}
+            alt="github"
             className="twitter"
             style={{ maxWidth: "20px", opacity: "0.7" }}
           />

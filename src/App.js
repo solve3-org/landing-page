@@ -12,6 +12,7 @@ import HowItWorks from "./components/HowItWorks";
 import Props from "./components/Props";
 import Footer from "./components/Footer";
 import Networks from "./components/Networks";
+import WelcomeHero2 from "./components/WelcomeHero2";
 
 function App() {
   return (
